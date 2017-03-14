@@ -10,6 +10,7 @@ defmodule GrpcServerSample.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
+      supervisor(GRPC.Server.Supervisor, [{Hello.Hello.Server, 50051}])
       # Starts a worker by calling: GrpcServerSample.Worker.start_link(arg1, arg2, arg3)
       # worker(GrpcServerSample.Worker, [arg1, arg2, arg3]),
     ]
